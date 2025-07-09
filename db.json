@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "HP Victus 15",
+      "price": "Rp 11.250.000",
+      "image": "/images/Victus.jpg",
+      "description": "HP Victus 15 adalah laptop gaming yang dirancang untuk performa maksimal dengan harga terjangkau. Ditenagai oleh prosesor Intel Core generasi terbaru dan kartu grafis NVIDIA GeForce RTX, laptop ini siap menjalankan game AAA favorit Anda. Layar Full HD dengan refresh rate tinggi memastikan visual yang mulus dan tajam.",
+      "specifications": [
+        { "name": "Prosesor", "value": "Intel® Core™ i5-12450H" },
+        { "name": "RAM", "value": "8 GB DDR4-3200 MHz" },
+        { "name": "Penyimpanan", "value": "512 GB PCIe® NVMe™ M.2 SSD" },
+        { "name": "Grafis", "value": "NVIDIA® GeForce RTX™ 2050" },
+        { "name": "Layar", "value": "15.6\" FHD (1920 x 1080), 144 Hz" },
+        { "name": "Sistem Operasi", "value": "Windows 11 Home" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Acer Nitro V",
+      "price": "Rp 25.000.000",
+      "image": "/images/Nitro.jpg",
+      "description": "Rasakan pengalaman gaming imersif dengan Acer Nitro V. Sistem pendingin canggih menjaga suhu tetap optimal bahkan saat sesi gaming intens. Keyboard dengan lampu latar RGB dan audio berkualitas tinggi dari DTS:X Ultra melengkapi paket gaming yang solid ini.",
+      "specifications": [
+        { "name": "Prosesor", "value": "Intel® Core™ i7-13620H" },
+        { "name": "RAM", "value": "16 GB DDR5" },
+        { "name": "Penyimpanan", "value": "1 TB PCIe® Gen4 NVMe™ SSD" },
+        { "name": "Grafis", "value": "NVIDIA® GeForce RTX™ 4060" },
+        { "name": "Layar", "value": "15.6\" QHD (2560 x 1440), 165 Hz" },
+        { "name": "Sistem Operasi", "value": "Windows 11 Pro" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Asus ZenBook Pro 14 Duo",
+      "price": "Rp 30.000.000",
+      "image": "/images/ZenBook-Pro-14-Duo.jpg",
+      "description": "Untuk para kreator dan multitasker, Asus ZenBook Pro 14 Duo menawarkan inovasi dengan dua layar. ScreenPad Plus memberikan ruang kerja tambahan untuk aplikasi, referensi, atau tool kreatif Anda. Ditenagai oleh komponen kelas atas, laptop ini memberikan performa tanpa kompromi untuk editing video, desain grafis, dan banyak lagi.",
+      "specifications": [
+        { "name": "Prosesor", "value": "Intel® Core™ i9-13900H" },
+        { "name": "RAM", "value": "32 GB LPDDR5" },
+        { "name": "Penyimpanan", "value": "2 TB PCIe® 4.0 NVMe™ SSD" },
+        { "name": "Grafis", "value": "NVIDIA® GeForce RTX™ 4070" },
+        { "name": "Layar Utama", "value": "14.5\" 2.8K (2880 x 1800) OLED 120Hz" },
+        { "name": "Layar Kedua", "value": "12.7\" ScreenPad™ Plus" }
+      ]
+    }
+  ],
+  "banners": [
+    { "id": "b1", "alt": "Promotional banner 1", "image": "/images/Barner1.jpeg" },
+    { "id": "b2", "alt": "Promotional banner 2", "image": "/images/Barner2.jpeg" },
+    { "id": "b3", "alt": "Promotional banner 3", "image": "/images/Barner3.jpg" }
+  ]
+}

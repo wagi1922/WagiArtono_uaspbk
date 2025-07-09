@@ -1,26 +1,51 @@
 <template>
   <div class="p-4">
     <h2 class="text-2xl font-semibold mb-4 text-center">Produk Unggulan</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div v-for="product in products" :key="product.id" class="border rounded-lg p-4 shadow hover:shadow-lg transition">
-        <img :src="product.image" class="w-full h-40 object-cover mb-2 rounded" />
+    
+    <div v-if="productStore.loading" class="text-center text-gray-500">
+      Memuat produk...
+    </div>
+    <div v-else-if="productStore.error" class="text-center text-red-500">
+      Gagal memuat data: {{ productStore.error.message }}
+    </div>
+
+    <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div v-for="product in productStore.products" :key="product.id" class="border rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col">
+        <img :src="product.image" :alt="product.name" class="w-full h-40 object-cover mb-2 rounded" />
         <h3 class="font-bold text-lg">{{ product.name }}</h3>
-        <p class="text-gray-600">{{ product.price }}</p>
-        <button class="mt-2 bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Beli</button>
+        <p class="text-gray-600 mb-4">{{ product.price }}</p>
+        
+        <!-- Wrapper untuk tombol-tombol -->
+        <div class="mt-auto flex space-x-2">
+          <button 
+            @click="cartStore.addProductToCart(product)" 
+            class="flex-1 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-sm">
+            Beli
+          </button>
+          
+          <!-- TOMBOL DETAIL BARU -->
+          <router-link 
+            :to="`/product/${product.id}`" 
+            class="flex-1 text-center bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition-colors text-sm">
+            Detail
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-// Import gambar lokal
-import imgA from '../assets/image/Victus.jpg'
-import imgB from '../assets/image/Nitro.jpg'
-import imgC from '../assets/image/ZenBook-Pro-14-Duo.jpg'
+import { onMounted } from 'vue'
+import { useProductStore } from '../stores/productStore'
+import { useCartStore } from '../stores/cartStore'
 
-const products = [
-  { id: 1, name: 'Produk A', price: 'Rp 11.250.000', image: imgA },
-  { id: 2, name: 'Produk B', price: 'Rp 25.000.000', image: imgB },
-  { id: 3, name: 'Produk C', price: 'Rp 30.000.000', image: imgC },
-]
+const productStore = useProductStore()
+const cartStore = useCartStore()
+
+onMounted(() => {
+  if (productStore.products.length === 0) {
+    productStore.fetchProducts()
+  }
+})
 </script>

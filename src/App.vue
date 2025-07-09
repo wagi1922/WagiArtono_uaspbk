@@ -1,13 +1,22 @@
 <template>
   <Navbar />
-  <Carousel />
-  <ProductCard />
+  <main>
+    <router-view />
+  </main>
+
   <Footer />
 </template>
 
 <script setup>
+
 import Navbar from './components/Navbar.vue'
-import Carousel from './components/Carousel.vue'
-import ProductCard from './components/ProductCard.vue'
 import Footer from './components/Footer.vue'
+
 </script>
+
+<style>
+main {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+</style>
