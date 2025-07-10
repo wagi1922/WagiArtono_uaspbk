@@ -30,34 +30,17 @@ export const useCartStore = defineStore('cart', {
       }
     },
 
-    // --- ACTIONS BARU DI SINI ---
-
-    /**
-     * Menghapus satu item sepenuhnya dari keranjang
-     * @param {number} productId ID produk yang akan dihapus
-     */
     removeItemFromCart(productId) {
       this.items = this.items.filter(item => item.id !== productId);
     },
-
-    /**
-     * Mengurangi kuantitas item. Jika kuantitas menjadi 0, item akan dihapus.
-     * @param {number} productId ID produk yang kuantitasnya akan dikurangi
-     */
     decreaseQuantity(productId) {
       const item = this.items.find(item => item.id === productId);
       if (item && item.quantity > 1) {
         item.quantity--;
       } else if (item) {
-        // Jika kuantitas 1, hapus item dari keranjang
         this.removeItemFromCart(productId);
       }
     },
-    
-    /**
-     * Menambah kuantitas item.
-     * @param {number} productId ID produk yang kuantitasnya akan ditambah
-     */
     increaseQuantity(productId) {
       const item = this.items.find(item => item.id === productId);
       if (item) {

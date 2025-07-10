@@ -1,13 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import { useCartStore } from './cartStore'
-
-// 'describe' digunakan untuk mengelompokkan tes terkait
 describe('Cart Store', () => {
-  // 'beforeEach' berjalan sebelum setiap tes 'it' dijalankan.
-  // Ini penting untuk memastikan setiap tes dimulai dengan state yang bersih.
   beforeEach(() => {
-    // Membuat instance Pinia baru dan mengaktifkannya
     setActivePinia(createPinia())
   })
 
@@ -33,11 +28,11 @@ describe('Cart Store', () => {
     const cartStore = useCartStore()
     const product = { id: 1, name: 'Produk A', price: 'Rp 100.000' }
 
-    cartStore.addProductToCart(product) // Tambah pertama kali
-    cartStore.addProductToCart(product) // Tambah produk yang sama lagi
+    cartStore.addProductToCart(product)
+    cartStore.addProductToCart(product)
 
-    expect(cartStore.items).toHaveLength(1) // Jumlah item unik tetap 1
-    expect(cartStore.items[0].quantity).toBe(2) // Kuantitasnya menjadi 2
+    expect(cartStore.items).toHaveLength(1)
+    expect(cartStore.items[0].quantity).toBe(2)
     expect(cartStore.totalItemCount).toBe(2)
   })
   
@@ -46,11 +41,11 @@ describe('Cart Store', () => {
     const product = { id: 1, name: 'Produk A', price: 'Rp 100.000' }
     cartStore.addProductToCart(product)
 
-    expect(cartStore.items).toHaveLength(1) // Pastikan item sudah ada
+    expect(cartStore.items).toHaveLength(1)
 
-    cartStore.removeItemFromCart(1) // Hapus item dengan id 1
+    cartStore.removeItemFromCart(1)
 
-    expect(cartStore.items).toHaveLength(0) // Keranjang seharusnya kosong
+    expect(cartStore.items).toHaveLength(0)
     expect(cartStore.totalItemCount).toBe(0)
   })
 })

@@ -15,7 +15,7 @@
         <h3 class="font-bold text-lg">{{ product.name }}</h3>
         <p class="text-gray-600 mb-4">{{ product.price }}</p>
         
-        <!-- Wrapper untuk tombol-tombol -->
+        
         <div class="mt-auto flex space-x-2">
           <button 
             @click="cartStore.addProductToCart(product)" 
@@ -23,7 +23,6 @@
             Beli
           </button>
           
-          <!-- TOMBOL DETAIL BARU -->
           <router-link 
             :to="`/product/${product.id}`" 
             class="flex-1 text-center bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition-colors text-sm">

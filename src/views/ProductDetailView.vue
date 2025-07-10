@@ -1,33 +1,29 @@
 <template>
   <div class="max-w-4xl mx-auto p-4 md:p-8">
-    <!-- Tampilan Loading -->
+    
     <div v-if="loading" class="text-center py-20">
       <p class="text-gray-500 text-xl">Memuat detail produk...</p>
     </div>
 
-    <!-- Tampilan Error -->
     <div v-else-if="error" class="text-center py-20 bg-red-50 p-8 rounded-lg">
       <h2 class="text-2xl text-red-700 font-bold mb-2">Oops! Produk Tidak Ditemukan</h2>
       <p class="text-red-600">Kami tidak dapat menemukan produk yang Anda cari.</p>
       <router-link to="/" class="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Kembali ke Home</router-link>
     </div>
 
-    <!-- Tampilan Konten Produk -->
+
     <div v-else-if="product" class="grid md:grid-cols-2 gap-8 items-start">
-      <!-- Kolom Gambar -->
+      
       <div>
         <img :src="product.image" :alt="product.name" class="w-full h-auto object-cover rounded-lg shadow-lg">
       </div>
 
-      <!-- Kolom Deskripsi -->
+      
       <div class="flex flex-col h-full">
         <h1 class="text-3xl md:text-4xl font-bold mb-2">{{ product.name }}</h1>
         <p class="text-2xl text-blue-600 font-semibold mb-4">{{ product.price }}</p>
         <p class="text-gray-700 leading-relaxed">{{ product.description }}</p>
 
-        <!-- ================================== -->
-        <!-- BAGIAN SPESIFIKASI BARU DI SINI -->
-        <!-- ================================== -->
         <div v-if="product.specifications && product.specifications.length" class="mt-6 border-t pt-4">
           <h3 class="text-lg font-semibold mb-3 text-gray-800">Spesifikasi Teknis</h3>
           <ul class="space-y-2">
@@ -87,6 +83,4 @@ onMounted(async () => {
   }
 })
 
-// Tidak ada perubahan yang diperlukan di bagian script,
-// karena data spesifikasi sudah menjadi bagian dari objek 'product'.
 </script>

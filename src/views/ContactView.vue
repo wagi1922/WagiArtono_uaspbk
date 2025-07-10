@@ -9,7 +9,7 @@
           </p>
 
           <div class="grid md:grid-cols-2 gap-8">
-            <!-- Info Kontak -->
+            
             <div class="space-y-4">
               <div>
                 <h3 class="text-lg font-semibold text-gray-800">Alamat Kantor</h3>
@@ -25,7 +25,7 @@
               </div>
             </div>
 
-            <!-- Form Kontak Sederhana -->
+            
             <form action="#" method="POST" class="space-y-4">
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
@@ -51,7 +51,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-// Tidak perlu script untuk halaman statis ini
-</script>
