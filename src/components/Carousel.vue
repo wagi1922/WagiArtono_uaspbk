@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-
+import api from '../api/axios'
 
 const banners = ref([])
 const loading = ref(true)
@@ -36,14 +36,12 @@ const error = ref(null)
 const currentIndex = ref(0)
 let intervalId = null;
 
-
 async function fetchBanners() {
   try {
-    const response = await fetch('http://localhost:3000/banners')
-    if (!response.ok) {
-      throw new Error('Gagal mengambil data banner')
-    }
-    banners.value = await response.json()
+    // 2. Ganti fetch dengan api.get()
+    const response = await api.get('/banners')
+    // 3. Gunakan response.data
+    banners.value = response.data
   } catch (e) {
     error.value = e
     console.error(e)
@@ -51,6 +49,7 @@ async function fetchBanners() {
     loading.value = false
   }
 }
+
 
 function next() {
   if (banners.value.length > 0) {
@@ -69,7 +68,6 @@ onMounted(() => {
   fetchBanners()
   intervalId = setInterval(next, 4000)
 })
-
 
 onUnmounted(() => {
   clearInterval(intervalId)

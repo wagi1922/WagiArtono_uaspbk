@@ -51,6 +51,8 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCartStore } from '../stores/cartStore'
 import { useProductStore } from '../stores/productStore'
+// 1. Impor instance api
+import api from '../api/axios'
 
 const route = useRoute()
 const cartStore = useCartStore()
@@ -69,11 +71,10 @@ onMounted(async () => {
     loading.value = false
   } else {
     try {
-      const response = await fetch(`http://localhost:3000/products/${productId}`)
-      if (!response.ok) {
-        throw new Error('Produk tidak ditemukan di API')
-      }
-      product.value = await response.json()
+      // 2. Ganti fetch dengan api.get()
+      const response = await api.get(`/products/${productId}`)
+      // 3. Gunakan response.data
+      product.value = response.data
     } catch (e) {
       console.error(e)
       error.value = e
@@ -82,5 +83,4 @@ onMounted(async () => {
     }
   }
 })
-
 </script>
